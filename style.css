@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+.card {
+    background-color:  #ffeaa7;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin: 20px;
+    font-family: 'Permanent Marker', cursive;
+   
+}
+.column {
+    background-color:white;
+    width: 400px;
+    border: 5px solid black;
+    margin: 20px;  
+
+   
+}
+.column-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.board {
+    background-image: url("https://www.publicdomainpictures.net/pictures/30000/velka/cork-board.jpg");
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    min-height: 240px;
+    padding: 0;
+    flex-wrap: wrap;
+}
+ .btn-delete {
+   float: right;
+   margin: 10px 10px 0 0;
+   display: block;
+}
+h1, h2 {
+    text-transform: uppercase;
+    font-family: 'Merriweather', serif;
+}
+h1 {
+    font-size: 50px;
+    color: white;
+}
+h2 {
+    margin-top: 40px;
+}
+.create-column, .add-card {
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Merriweather', serif;
+    color: white;
+    background-color: rgba(99, 110, 114,0.7);
+    text-transform: uppercase;
+    height: 70px;
+    width: 150px;
+}
+.create-column:hover, 
+.add-card:hover {
+    cursor: pointer;
+}
+.board-header {
+    background-color: rgba(0,0,0,0.5);
+    width: 40vw;
+    margin: 0 auto;
+   padding: 10px;
+    height: 220px;
+}
