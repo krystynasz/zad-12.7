@@ -33,7 +33,8 @@ function initSortable(id) {
         group: 'kanban',
         sort: true,
     });
-    var data = new FormData();
+
+    /*var data = new FormData();
         data.append('name', card.id);
         data.append('bootcamp_kanban_column_id',id);
 
@@ -43,5 +44,5 @@ function initSortable(id) {
 		  })
 		  .then(function(resp) {
 			console.log(card.id);
-		  });
+		  });*/
 }
