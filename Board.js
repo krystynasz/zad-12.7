@@ -31,14 +31,19 @@ function initSortable(id) {
     var el = document.getElementById(id);
     var sortable = Sortable.create(el, {
         group: 'kanban',
-        sort: true,
+        sort: true
 
-		/*fetch(baseUrl + '/card/' + card.id, { method: 'PUT', headers: myHeaders })
+        
+        var data = new FormData();
+        data.append('name', card.id);
+        data.append('bootcamp_kanban_column_id',id);
+
+		fetch(baseUrl + '/card/' + card.id, { method: 'PUT', headers: myHeaders, body:data })
 		  .then(function(resp) {
 			return resp.json();
 		  })
 		  .then(function(resp) {
-			self.bootcamp_kanban_column_id = id;
-		  });*/
+			console.log(card.id);
+		  });
     });
 }
