@@ -33,14 +33,12 @@ function initSortable(id) {
         group: 'kanban',
         sort: true,
 
-        var self = this;
-
-		fetch(baseUrl + '/card/' + card.id, { method: 'PUT', headers: myHeaders })
+		/*fetch(baseUrl + '/card/' + card.id, { method: 'PUT', headers: myHeaders })
 		  .then(function(resp) {
 			return resp.json();
 		  })
 		  .then(function(resp) {
 			self.bootcamp_kanban_column_id = id;
-		  });
+		  });*/
     });
 }
