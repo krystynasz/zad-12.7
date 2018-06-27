@@ -13,17 +13,6 @@ fetch(baseUrl + '/board', { headers: myHeaders })
   });
 
 
-// OGÓLNA FUNKCJA
-
-/*function randomString() {
-	var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
-	var str = '';
-	for (var i = 0; i < 10; i++) {
-		str += chars[Math.floor(Math.random() * chars.length)];
-	}
-	return str;
-}*/
-
 function setupColumns(columns) {
 	columns.forEach(function (column) {
 		  var col = new Column(column.id, column.name);
@@ -48,23 +37,3 @@ function generateTemplate(name, data, basicElement) {
   
   	return element;
 }
-
-/*
-// TWORZENIE NOWYCH EGZEMPLARZY KOLUMN
-var todoColumn = new Column('To do');
-var doingColumn = new Column('Doing');
-var doneColumn = new Column('Done');
-
-// DODAWANIE KOLUMN DO TABLICY
-board.addColumn(todoColumn);
-board.addColumn(doingColumn);
-board.addColumn(doneColumn);
-
-// TWORZENIE NOWYCH EGZEMPLARZY KART
-var card1 = new Card('Complete the exercise');
-var card2 = new Card('Build a kanban');
-
-// DODAWANIE KART DO KOLUMN
-todoColumn.addCard(card1);
-doingColumn.addCard(card2);
-*/
