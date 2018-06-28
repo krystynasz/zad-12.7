@@ -59,7 +59,6 @@ function initSortable(id) {
               .then(function(resp) {
                 console.log(itemEl.id);
               });
-        },*/
             /*var data = new FormData();
                 data.append('name', card.id);
                 data.append('bootcamp_kanban_column_id',id);
