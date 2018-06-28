@@ -37,7 +37,7 @@ function initSortable(id) {
 
     onEnd: function (/**Event*/evt) {
         var itemEl = evt.item;  // dragged HTMLElement
-        console.log(itemEl);
+        console.log(itemEl.id);
 		var targetColumn = evt.to;    // target list
 		evt.from;  // previous list
 		evt.oldIndex;  // element's old index within old parent
