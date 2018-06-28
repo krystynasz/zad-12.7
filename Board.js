@@ -32,8 +32,17 @@ function initSortable(id) {
     var sortable = Sortable.create(el, {
         group: 'kanban',
         sort: true,
-    });
+    },
 
+
+    onEnd: function (/**Event*/evt) {
+		var itemEl = evt.item;  // dragged HTMLElement
+		evt.to;    // target list
+		evt.from;  // previous list
+		evt.oldIndex;  // element's old index within old parent
+        evt.newIndex;  // element's new index within new parent
+        console.log ("dragging")
+	},
     /*var data = new FormData();
         data.append('name', card.id);
         data.append('bootcamp_kanban_column_id',id);
@@ -44,5 +53,5 @@ function initSortable(id) {
 		  })
 		  .then(function(resp) {
 			console.log(card.id);
-		  });*/
-}
+          });*/
+        });
