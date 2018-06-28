@@ -56,8 +56,8 @@ function initSortable(id) {
               .then(function(resp) {
                 return resp.json();
               })
-              .then(function(resp) {
-                console.log(itemEl.id);
+              .catch(function() {
+                  console.log("error")
               });
             /*var data = new FormData();
                 data.append('name', card.id);
