@@ -36,8 +36,9 @@ function initSortable(id) {
 
 
     onEnd: function (/**Event*/evt) {
-		var itemEl = evt.item;  // dragged HTMLElement
-		evt.to;    // target list
+        var itemEl = evt.item;  // dragged HTMLElement
+        console.log(itemEl.id);
+		var targetColumen = evt.to;    // target list
 		evt.from;  // previous list
 		evt.oldIndex;  // element's old index within old parent
         evt.newIndex;  // element's new index within new parent
@@ -45,7 +46,7 @@ function initSortable(id) {
 
         var data = new FormData();
         data.append('name', itemEl.id);
-        data.append('bootcamp_kanban_column_id',id);
+        data.append('bootcamp_kanban_column_id',targetColumn.id);
 
 		fetch(baseUrl + '/card/' + itemEl.id, { method: 'PUT', headers: myHeaders, body:data })
 		  .then(function(resp) {
