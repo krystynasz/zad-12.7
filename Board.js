@@ -38,14 +38,14 @@ function initSortable(id) {
         onEnd: function (/**Event*/evt) {
             var itemEl = evt.item;  // dragged HTMLElement
             console.log(itemEl);
-            var cardDiv = itemEl.getElementsByTagName("div");
-            var cardId = cardDiv.id;
+            var cardDiv = itemEl.getElementsByTagName("div")[0];
+            var cardId = cardDiv.getAttribute("id");
             var targetColumn = evt.to;    // target list
             evt.from;  // previous list
             evt.oldIndex;  // element's old index within old parent
             evt.newIndex;  // element's new index within new parent
             console.log(cardDiv);
-            console.log(cardDiv.id);
+            console.log(cardId);
 
             /*var data = new FormData();
             data.append('name', itemEl.id);
