@@ -44,7 +44,8 @@ function initSortable(id) {
             evt.from;  // previous list
             evt.oldIndex;  // element's old index within old parent
             evt.newIndex;  // element's new index within new parent
-            console.log(cardId)
+            console.log(cardDiv);
+            console.log(cardId);
 
             /*var data = new FormData();
             data.append('name', itemEl.id);
