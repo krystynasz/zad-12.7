@@ -32,7 +32,7 @@ function initSortable(id) {
     var sortable = Sortable.create(el, {
         group: 'kanban',
         sort: true,
-    },
+    
 
 
     onEnd: function (/**Event*/evt) {
@@ -55,3 +55,4 @@ function initSortable(id) {
 			console.log(card.id);
           });*/
         });
+    }
