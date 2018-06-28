@@ -42,6 +42,18 @@ function initSortable(id) {
 		evt.oldIndex;  // element's old index within old parent
         evt.newIndex;  // element's new index within new parent
         console.log ("dragging")
+
+        var data = new FormData();
+        data.append('name', itemEl.id);
+        data.append('bootcamp_kanban_column_id',id);
+
+		fetch(baseUrl + '/card/' + itemEl.id, { method: 'PUT', headers: myHeaders, body:data })
+		  .then(function(resp) {
+			return resp.json();
+		  })
+		  .then(function(resp) {
+			console.log(itemEl.id);
+          });
 	},
     /*var data = new FormData();
         data.append('name', card.id);
