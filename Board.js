@@ -69,5 +69,5 @@ function initSortable(id) {
                     console.log(card.id);
                   });*/
         }
-    }
+    });
 }
