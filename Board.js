@@ -54,11 +54,22 @@ function initSortable(id) {
     
             fetch(baseUrl + '/card/' + cardId, { method: 'PUT', headers: myHeaders, body:data })
               .then(function(resp) {
-                return resp.json();
+                if (resp.ok) {
+                    return resp.json();    
+                }
+                throw new Error('Something went wrong.');
+              })
+              .then(function(resp) {
+                console.log(resp);
+              })
+              .catch(function(err) {
+                console.log(err);
+              });
+                /*return resp.json();
               })
               .catch(function() {
                   console.log("error")
-              });
+              });*/
             /*var data = new FormData();
                 data.append('name', card.id);
                 data.append('bootcamp_kanban_column_id',id);
