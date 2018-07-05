@@ -54,8 +54,8 @@ function initSortable(id) {
         
         var jsonData = JSON.stringify(data);
            
-            data.append('bootcamp_kanban_column_id',targetColumn.id);
-            console.log(targetColumn.id);
+            //data.append('bootcamp_kanban_column_id',targetColumn.id);
+           // console.log(targetColumn.id);
     
             fetch(baseUrl + '/card/' + cardId, { 
                 method: 'PUT', 
