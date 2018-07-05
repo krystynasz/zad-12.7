@@ -47,12 +47,22 @@ function initSortable(id) {
             console.log(cardDiv);
             console.log(cardId);
 
-            var data = new FormData();
+           // var data = new FormData();
+           var data = {
+            bootcamp_kanban_column_id: targetColumn.id
+        };
+        
+        var jsonData = JSON.stringify(data);
            
             data.append('bootcamp_kanban_column_id',targetColumn.id);
             console.log(targetColumn.id);
     
-            fetch(baseUrl + '/card/' + cardId, { method: 'PUT', headers: myHeaders, body:data })
+            fetch(baseUrl + '/card/' + cardId, { 
+                method: 'PUT', 
+                headers: myHeaders, 
+                body: jsonData 
+            })
+            /*fetch(baseUrl + '/card/' + cardId, { method: 'PUT', headers: myHeaders, body:data })*/
               .then(function(resp) {
                 if (resp.ok) {
                     return resp.json();    
