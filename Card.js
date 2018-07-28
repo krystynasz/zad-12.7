@@ -14,7 +14,31 @@ this.name = name || 'No name given';
 
     	if (event.target.classList.contains('btn-delete')) {
       		self.removeCard();
-    	}
+			}
+			
+			if (event.target.classList.contains('card')) {
+				var cardName = prompt("Change the name of the card");
+				event.preventDefault();
+	
+				var data = new FormData();
+				data.append('name', cardName);
+				data.append('bootcamp_kanban_column_id', self.id);
+	
+				fetch(baseUrl + '/card', {
+					method: 'POST',
+					headers: myHeaders,
+					body: data,
+				})
+					.then(function (res) {
+						return res.json();
+					})
+					.then(function (resp) {
+						var card = new Card(resp.id, cardName);
+					self.addCard(card);
+					});
+			}
+	
+
   	});
 }
 Card.prototype = {

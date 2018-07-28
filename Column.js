@@ -33,10 +33,35 @@ function Column(id, name) {
 					var card = new Card(resp.id, cardName);
 					self.addCard(card);
 				});
+		}
+
+		if (event.target.classList.contains('column-title')) {
+			var newColumnName = prompt("Change the name of the column");
+			event.preventDefault();
+
+		var data = new FormData();
+
+		data.append('name', newColumnName);
+	
+		fetch(baseUrl + '/column', {
+			method: 'POST',
+			headers: myHeaders,
+			body: data,
+		})
+			.then(function (resp) {
+				return resp.json();
+			})
+			.then(function (resp) {
+				var column = new Column(resp.id, newColumnName);
+				board.addColumn(column);
+
+			});
 
 		}
+
 	});
 }
+
 
 Column.prototype = {
 	addCard: function (card) {
@@ -54,5 +79,5 @@ Column.prototype = {
 			.then(function (resp) {
 				self.element.parentNode.removeChild(self.element);
 			});
-	}
+	},
 };

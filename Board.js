@@ -33,9 +33,7 @@ function initSortable(id) {
         group: 'kanban',
         sort: true,
 
-
-
-        onEnd: function (/**Event*/evt) {
+        onEnd: function (evt) {
             var itemEl = evt.item;  // dragged HTMLElement
             console.log(itemEl);
             var cardDiv = itemEl.getElementsByTagName("div")[0];
@@ -47,7 +45,6 @@ function initSortable(id) {
             console.log(cardDiv);
             console.log(cardId);
 
-           // var data = new FormData();
            var data = {
             bootcamp_kanban_column_id: targetColumn.id
         };
