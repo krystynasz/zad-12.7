@@ -52,7 +52,8 @@ function Card(id, name) {
 			var jsonData = JSON.stringify(data);
 
 			var cardId = event.target.parentNode.querySelector('[id]').id;
-console.log(cardId);
+			console.log(cardId);
+		
 			fetch(baseUrl + '/card/' + cardId, {
 				method: 'PUT',
 				headers: myHeaders,
@@ -64,7 +65,6 @@ console.log(cardId);
 				.then(function (resp) {
 					event.target.innerText = newCardName;
 				});
-
 		}
 
 
