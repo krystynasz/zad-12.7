@@ -73,13 +73,16 @@ function Card(id, name) {
 				});*/
 				
 			var data = {
-				name: newCardName
+				name: newCardName,
+				bootcamp_kanban_column_id: this.id
 			};
 			var jsonData = JSON.stringify(data);
 
-			var columnId = event.target.parentNode.querySelector('[id]').id;
+			var cardId = event.target.parentNode.querySelector('[id]').id;
 
-			fetch(baseUrl + '/card/' + columnId, {
+			console.log(cardId);
+
+			fetch(baseUrl + '/card/' + cardId, {
 				method: 'PUT',
 				headers: myHeaders,
 				body: jsonData,
