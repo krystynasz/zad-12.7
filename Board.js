@@ -49,7 +49,8 @@ function initSortable(id) {
             console.log(cardId);
 
             var data = {
-                bootcamp_kanban_column_id: targetColumn.id
+                bootcamp_kanban_column_id: targetColumn.id,
+                name: "moved card",
             };
 
             var jsonData = JSON.stringify(data);
