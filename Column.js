@@ -19,7 +19,7 @@ function Column(id, name) {
 
 			var data = {
 				name: cardName,
-				bootcamp_kanban_column_id: this.id
+				bootcamp_kanban_column_id: id
 				};
 				
 				var jsonData = JSON.stringify(data);
