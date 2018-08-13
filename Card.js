@@ -78,7 +78,7 @@ function Card(id, name) {
 			var jsonData = JSON.stringify(data);
 			console.log(jsonData);
 
-			var cardId = event.target.parentNode.querySelector('[id]').id;
+			var cardId = event.target.id;
 
 			console.log(cardId);
 
