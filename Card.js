@@ -22,7 +22,7 @@ function Card(id, name) {
 
 			var data = {
 				name: newCardName,
-				bootcamp_kanban_column_id: event.target.parentNode.querySelector('column-card-list').id
+				bootcamp_kanban_column_id: event.target.closest('column-card-list').id
 			};
 			console.log(data.bootcamp_kanban_column_id);
 
