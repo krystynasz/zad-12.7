@@ -61,7 +61,7 @@ function Card(id, name) {
 		console.log(cardId);
 		
 			fetch(baseUrl + '/card/' + cardId, {
-				method: 'PUT',
+				method: 'POST',
 				headers: myHeaders,
 				body: jsonData,
 			})
@@ -69,7 +69,6 @@ function Card(id, name) {
 					return resp.json();
 				})
 				.then(function (resp) {
-					console.log (newCardName);
 					event.target.innerText = newCardName;
 				});
 		}
