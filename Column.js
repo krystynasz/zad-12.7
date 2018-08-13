@@ -39,6 +39,10 @@ function Column(id, name) {
 			var newColumnName = prompt("Change the name of the column");
 			event.preventDefault();
 
+			var columnName = this.getElementsByTagName('h2')[0];
+			columnName = newColumnName;
+console.log(columnName);
+
 		var data = new FormData();
 
 		data.append('name', newColumnName);
@@ -55,13 +59,18 @@ function Column(id, name) {
 				var column = new Column(resp.id, newColumnName);
 				board.addColumn(column);
 
+				var columnName = this.getElementsByTagName('h2')[0];
+				columnName = newColumnName;
+	console.log(columnName);
+
+	self.changeColumnName();
+	
 			});
 
 		}
 
 	});
 }
-
 
 Column.prototype = {
 	addCard: function (card) {
@@ -79,5 +88,11 @@ Column.prototype = {
 			.then(function (resp) {
 				self.element.parentNode.removeChild(self.element);
 			});
+	},
+
+	changeColumnName: function () {
+		var columnName = this.getElementsByTagName('h2')[0];
+		columnName = newColumnName;
+console.log(columnName);
 	},
 };

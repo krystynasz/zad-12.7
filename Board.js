@@ -9,6 +9,19 @@ var board = {
 
 document.querySelector('#board .create-column').addEventListener('click', function () {
     var name = prompt('Enter a column name');
+   
+    var data = {
+        name: name
+        };
+        
+        var jsonData = JSON.stringify(data);
+        
+        fetch(baseUrl + '/column', {
+        method: 'POST',
+        headers: myHeaders,
+        body: jsonData,
+        })
+/*        
     var data = new FormData();
 
     data.append('name', name);
@@ -17,7 +30,7 @@ document.querySelector('#board .create-column').addEventListener('click', functi
         method: 'POST',
         headers: myHeaders,
         body: data,
-    })
+    })*/
         .then(function (resp) {
             return resp.json();
         })
