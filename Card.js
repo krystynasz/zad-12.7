@@ -77,7 +77,7 @@ function Card(id, name) {
 				bootcamp_kanban_column_id: this.id
 			};
 			var jsonData = JSON.stringify(data);
-
+console.log(jsonData);
 			var cardId = event.target.parentNode.querySelector('[id]').id;
 
 			console.log(cardId);
