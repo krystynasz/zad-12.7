@@ -47,10 +47,12 @@ function initSortable(id) {
             evt.newIndex;  // element's new index within new parent
             console.log(cardDiv);
             console.log(cardId);
+            var cardName = itemEl.getElementsByClassName("card-description")[0];
+            console.log(cardName);
 
             var data = {
                 bootcamp_kanban_column_id: targetColumn.id,
-                name: "moved card",
+                name: cardName,
             };
 
             var jsonData = JSON.stringify(data);
