@@ -3,83 +3,82 @@ function Card(id, name) {
 	var self = this;
 
 	this.id = id;
-this.name = name || 'No name given';
+	this.name = name || 'No name given';
 	this.element = generateTemplate('card-template', {
 		description: this.name,
 		id: this.id
 	}, 'li');
 
-  	this.element.querySelector('.card').addEventListener('click', function (event) {
-    	event.stopPropagation();
+	this.element.querySelector('.card').addEventListener('click', function (event) {
+		event.stopPropagation();
 
-    	if (event.target.classList.contains('btn-delete')) {
-      		self.removeCard();
-			}
-			
-			/*if (event.target.classList.contains('card')) {
-				var cardName = prompt("Change the name of the card");
-				event.preventDefault();
+		if (event.target.classList.contains('btn-delete')) {
+			self.removeCard();
+		}
+
+		/*if (event.target.classList.contains('card')) {
+			var cardName = prompt("Change the name of the card");
+			event.preventDefault();
 	
-				var data = new FormData();
-				data.append('name', cardName);
-				data.append('bootcamp_kanban_column_id', self.id);
+			var data = new FormData();
+			data.append('name', cardName);
+			data.append('bootcamp_kanban_column_id', self.id);
 	
-				fetch(baseUrl + '/card', {
-					method: 'POST',
-					headers: myHeaders,
-					body: data,
+			fetch(baseUrl + '/card', {
+				method: 'POST',
+				headers: myHeaders,
+				body: data,
+			})
+				.then(function (res) {
+					return res.json();
 				})
-					.then(function (res) {
-						return res.json();
-					})
-					.then(function (resp) {
-						var card = new Card(resp.id, cardName);
-					self.addCard(card);
-					});
-			}*/
-			if (event.target.classList.contains('card')) {
-				var newCardName = prompt("Change the name of the card");
-				event.preventDefault();
-	
-				var cardName = this.getElementsByClassName('card-description')[0];
+				.then(function (resp) {
+					var card = new Card(resp.id, cardName);
+				self.addCard(card);
+				});
+		}*/
+		if (event.target.classList.contains('card')) {
+			var newCardName = prompt("Change the name of the card");
+			event.preventDefault();
+
+			var cardName = this.getElementsByClassName('card-description')[0];
 			cardName = newCardName;
-				console.log(cardName);
-	
-				var data = {
-					name: newCardName,
-					bootcamp_kanban_column_id: this.id
-				};
-				var jsonData = JSON.stringify(data);
-	
-				var cardId = event.target.id;
-	
-				fetch(baseUrl + '/card/' + cardId, {
-					method: 'PUT',
-					headers: myHeaders,
-					body: jsonData,
-				})
-					.then(function (resp) {
-						return resp.json();
-					})
-					.then(function (resp) {
-						event.target.innerText = newCardName;
-					});
-	
-			}
-	
+			console.log(cardName);
 
-  	});
+			var data = {
+				name: newCardName,
+			};
+			var jsonData = JSON.stringify(data);
+
+			var cardId = event.target.parentNode.querySelector('[id]').id;
+console.log(cardId);
+			fetch(baseUrl + '/card/' + cardId, {
+				method: 'PUT',
+				headers: myHeaders,
+				body: jsonData,
+			})
+				.then(function (resp) {
+					return resp.json();
+				})
+				.then(function (resp) {
+					event.target.innerText = newCardName;
+				});
+
+		}
+
+
+	});
 }
 Card.prototype = {
-	removeCard: function() {
+	removeCard: function () {
 		var self = this;
 
 		fetch(baseUrl + '/card/' + self.id, { method: 'DELETE', headers: myHeaders })
-		  .then(function(resp) {
-			return resp.json();
-		  })
-		  .then(function(resp) {
-			self.element.parentNode.removeChild(self.element);
-		  })
-    }
+			.then(function (resp) {
+				return resp.json();
+			})
+			.then(function (resp) {
+				self.element.parentNode.removeChild(self.element);
+			})
+	}
 }
