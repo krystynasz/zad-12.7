@@ -74,6 +74,7 @@ function Column(id, name) {
 				})
 				.then(function (resp) {
 					event.target.innerText = newColumnName;
+					console.log("It works")
 				});
 
 		}
