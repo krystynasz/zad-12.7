@@ -22,10 +22,10 @@ function Card(id, name) {
 
 			var data = {
 				name: newCardName,
-				bootcamp_kanban_column_id: event.target.parentNode.querySelector('[id]').id,
+				bootcamp_kanban_column_id: event.target.parentElement.id,
 			};
 			console.log(data.bootcamp_kanban_column_id);
-			
+
 			var jsonData = JSON.stringify(data);
 			console.log(jsonData);
 
