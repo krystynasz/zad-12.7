@@ -21,7 +21,8 @@ function Card(id, name) {
 			event.preventDefault();
 
 			var data = {
-				name: newCardName
+				name: newCardName,
+				bootcamp_kanban_column_id: event.target.id,
 			};
 
 			var jsonData = JSON.stringify(data);
