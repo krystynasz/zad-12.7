@@ -64,6 +64,7 @@ function Column(id, name) {
 		
 		}	
 	}
+}
 		/*		
 				var data = new FormData();
 		
