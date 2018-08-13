@@ -71,10 +71,11 @@ function Column(id, name) {
 			})
 				.then(function (resp) {
 					return resp.json();
+					console.log("It works 1")
 				})
 				.then(function (resp) {
 					event.target.innerText = newColumnName;
-					console.log("It works")
+					console.log("It works 2")
 				});
 
 		}
