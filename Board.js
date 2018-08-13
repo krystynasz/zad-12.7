@@ -70,7 +70,7 @@ function initSortable(id) {
             fetch(baseUrl + '/card/' + cardId, { 
                 method: 'PUT', 
                 headers: myHeaders, 
-                body: jsonData 
+                body: jsonData, 
             })
             /*fetch(baseUrl + '/card/' + cardId, { method: 'PUT', headers: myHeaders, body:data })*/
               .then(function(resp) {
