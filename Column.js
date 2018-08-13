@@ -61,7 +61,8 @@ function Column(id, name) {
 				name: newColumnName
 			};
 			var jsonData = JSON.stringify(data);
-
+			console.log(jsonData);
+			
 			var columnId = event.target.parentNode.querySelector('[id]').id;
 
 			fetch(baseUrl + '/column/' + columnId, {
