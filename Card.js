@@ -47,6 +47,7 @@ function Card(id, name) {
 
 			var data = {
 				name: newCardName,
+				bootcamp_kanban_column_id: id
 			};
 			var jsonData = JSON.stringify(data);
 
