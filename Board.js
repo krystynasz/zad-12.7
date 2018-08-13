@@ -47,7 +47,7 @@ function initSortable(id) {
             evt.newIndex;  // element's new index within new parent
             console.log(cardDiv);
             console.log(cardId);
-            var cardName = itemEl.getElementsByClassName("card-description")[0].value;
+            var cardName = itemEl.getElementsByClassName("card-description")[0].innerHTML;
             console.log(cardName);
 
             var data = {
