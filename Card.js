@@ -16,7 +16,7 @@ this.name = name || 'No name given';
       		self.removeCard();
 			}
 			
-			if (event.target.classList.contains('card')) {
+			/*if (event.target.classList.contains('card')) {
 				var cardName = prompt("Change the name of the card");
 				event.preventDefault();
 	
@@ -36,6 +36,34 @@ this.name = name || 'No name given';
 						var card = new Card(resp.id, cardName);
 					self.addCard(card);
 					});
+			}*/
+			if (event.target.classList.contains('card')) {
+				var newCardName = prompt("Change the name of the card");
+				event.preventDefault();
+	
+				var cardName = this.getElementsByClassName('card-description')[0];
+			cardName = newCardName;
+				console.log(cardName);
+	
+				var data = {
+					name: newCardName
+				};
+				var jsonData = JSON.stringify(data);
+	
+				var columnId = event.target.parentNode.querySelector('[id]').id;
+	
+				fetch(baseUrl + '/card/' + columnId, {
+					method: 'PUT',
+					headers: myHeaders,
+					body: jsonData,
+				})
+					.then(function (resp) {
+						return resp.json();
+					})
+					.then(function (resp) {
+						event.target.innerText = newCardName;
+					});
+	
 			}
 	
 
