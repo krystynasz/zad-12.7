@@ -61,61 +61,61 @@ function Column(id, name) {
 				.then(function (resp) {
 					event.target.innerText = newColumnName;
 				});
-		
-		}	
-	}
+
+		}
+	});
 }
-		/*		
-				var data = new FormData();
-		
-				data.append('name', newColumnName);
-			
-				fetch(baseUrl + '/column', {
-					method: 'POST',
-					headers: myHeaders,
-					body: data,
-				})
-					.then(function (resp) {
-						return resp.json();
-					})
-					.then(function (resp) {
-						var column = new Column(resp.id, newColumnName);
-						board.addColumn(column);
-		
-						var columnName = this.getElementsByTagName('h2')[0];
-						columnName = newColumnName;
-			console.log(columnName);
-		
-			self.changeColumnName();
-			
-					});
-		
-				}
-		
-			});
-		}*/
-
-		Column.prototype = {
-			addCard: function (card) {
-				this.element.querySelector('ul').appendChild(card.element);
-			},
-			/*removeColumn: function() {
-			  this.element.parentNode.removeChild(this.element);
-			},*/
-			removeColumn: function () {
-				var self = this;
-				fetch(baseUrl + '/column/' + self.id, { method: 'DELETE', headers: myHeaders })
-					.then(function (resp) {
-						return resp.json();
-					})
-					.then(function (resp) {
-						self.element.parentNode.removeChild(self.element);
-					});
-			},
-
-			changeColumnName: function () {
+/*		
+		var data = new FormData();
+	
+		data.append('name', newColumnName);
+	
+		fetch(baseUrl + '/column', {
+			method: 'POST',
+			headers: myHeaders,
+			body: data,
+		})
+			.then(function (resp) {
+				return resp.json();
+			})
+			.then(function (resp) {
+				var column = new Column(resp.id, newColumnName);
+				board.addColumn(column);
+	
 				var columnName = this.getElementsByTagName('h2')[0];
 				columnName = newColumnName;
-				console.log(columnName);
-			},
-		};
+	console.log(columnName);
+	
+	self.changeColumnName();
+	
+			});
+	
+		}
+	
+	});
+}*/
+
+Column.prototype = {
+	addCard: function (card) {
+		this.element.querySelector('ul').appendChild(card.element);
+	},
+	/*removeColumn: function() {
+	  this.element.parentNode.removeChild(this.element);
+	},*/
+	removeColumn: function () {
+		var self = this;
+		fetch(baseUrl + '/column/' + self.id, { method: 'DELETE', headers: myHeaders })
+			.then(function (resp) {
+				return resp.json();
+			})
+			.then(function (resp) {
+				self.element.parentNode.removeChild(self.element);
+			});
+	},
+
+	changeColumnName: function () {
+		var columnName = this.getElementsByTagName('h2')[0];
+		columnName = newColumnName;
+		console.log(columnName);
+	},
+};
