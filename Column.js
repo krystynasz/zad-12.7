@@ -70,8 +70,9 @@ function Column(id, name) {
 				body: jsonData,
 			})
 				.then(function (resp) {
+					console.log("It works 1");
 					return resp.json();
-					console.log("It works 1")
+					
 				})
 				.then(function (resp) {
 					event.target.innerText = newColumnName;
