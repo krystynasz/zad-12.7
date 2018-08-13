@@ -19,11 +19,12 @@ function Column(id, name) {
 
 			var data = {
 				name: cardName,
-				bootcamp_kanban_column_id: id
+				bootcamp_kanban_column_id: this.id,
 				};
 				
 				var jsonData = JSON.stringify(data);
-				
+				console.log (jsonData);
+
 				fetch(baseUrl + '/card', {
 				method: 'POST',
 				headers: myHeaders,
