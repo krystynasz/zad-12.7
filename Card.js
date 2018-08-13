@@ -73,11 +73,11 @@ function Card(id, name) {
 				});*/
 				
 			var data = {
-				name: newCardName,
-
+				name: newCardName
 			};
 			var jsonData = JSON.stringify(data);
-console.log(jsonData);
+			console.log(jsonData);
+
 			var cardId = event.target.parentNode.querySelector('[id]').id;
 
 			console.log(cardId);
@@ -87,18 +87,12 @@ console.log(jsonData);
 				headers: myHeaders,
 				body: jsonData,
 			})
-				.then(function(resp) {
-					if (resp.ok) {
-						return resp.json();    
-					}
-					throw new Error('Something went wrong.');
-				  })
-				  .then(function(resp) {
-					event.target.innerText = newCardName;
-				  })
-				  .catch(function(err) {
-					console.log(err);
-				  });
+			.then(function (resp) {
+				return resp.json();
+			})
+			.then(function (resp) {
+				event.target.innerText = newCardName;
+			});
 		}
 
 
