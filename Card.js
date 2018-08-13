@@ -47,8 +47,9 @@ function Card(id, name) {
 
 			var data = {
 				name: newCardName,
-				bootcamp_kanban_column_id: id
+			//	bootcamp_kanban_column_id: id
 			};
+
 			console.log(data.name);
 			console.log(data.bootcamp_kanban_column_id);
 		
