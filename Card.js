@@ -43,7 +43,7 @@ function Card(id, name) {
 					return resp.json();
 				})
 				.then(function (resp) {
-					event.target.innerText = newCardName;
+					event.target.innerHTML = "<button class='btn-delete'>x</button><p class='card-description'>" + newCardName + "</p>";
 					console.log("It works 2")
 				});
 		}
