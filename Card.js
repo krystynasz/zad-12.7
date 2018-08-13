@@ -43,7 +43,7 @@ function Card(id, name) {
 
 		/*	var cardName = this.getElementsByClassName('card-description')[0];
 			cardName = newCardName;
-			console.log(cardName);*/
+			console.log(cardName);
 
 			var data = {
 				name: newCardName,
@@ -61,6 +61,25 @@ function Card(id, name) {
 			console.log(cardId);
 
 			fetch(baseUrl + '/card/' + cardId, {
+				method: 'PUT',
+				headers: myHeaders,
+				body: jsonData,
+			})
+				.then(function (resp) {
+					return resp.json();
+				})
+				.then(function (resp) {
+					event.target.innerText = newCardName;
+				});*/
+				
+			var data = {
+				name: newCardName
+			};
+			var jsonData = JSON.stringify(data);
+
+			var columnId = event.target.parentNode.querySelector('[id]').id;
+
+			fetch(baseUrl + '/card/' + columnId, {
 				method: 'PUT',
 				headers: myHeaders,
 				body: jsonData,
