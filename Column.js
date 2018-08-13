@@ -24,7 +24,7 @@ function Column(id, name) {
 				
 				var jsonData = JSON.stringify(data);
 				
-				fetch(baseUrl + '/column', {
+				fetch(baseUrl + '/card', {
 				method: 'POST',
 				headers: myHeaders,
 				body: jsonData,
