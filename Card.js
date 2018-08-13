@@ -37,7 +37,7 @@ function Card(id, name) {
 				self.addCard(card);
 				});
 		}*/
-		if (event.target..parentNode.classList.contains('card')) {
+		if (event.target.parentNode.classList.contains('card')) {
 			var newCardName = prompt("Change the name of the card");
 			event.preventDefault();
 
