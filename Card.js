@@ -66,11 +66,10 @@ function Card(id, name) {
 				body: jsonData,
 			})
 				.then(function (resp) {
-					console.log ("It works");
 					return resp.json();
 				})
 				.then(function (resp) {
-					console.log ("It works 2");
+					console.log (newCardName);
 					event.target.innerText = newCardName;
 				});
 		}
