@@ -30,16 +30,6 @@ function Column(id, name) {
 				headers: myHeaders,
 				body: jsonData,
 				})
-
-			/*var data = new FormData();
-			data.append('name', cardName);
-			data.append('bootcamp_kanban_column_id', self.id);
-
-			fetch(baseUrl + '/card', {
-				method: 'POST',
-				headers: myHeaders,
-				body: data,
-			})*/
 				.then(function (res) {
 					return res.json();
 				})
@@ -53,16 +43,12 @@ function Column(id, name) {
 			var newColumnName = prompt("Change the name of the column");
 			event.preventDefault();
 
-		/*	var columnName = this.getElementsByTagName('h2')[0];
-			columnName = newColumnName;
-			console.log(columnName);*/
-
 			var data = {
 				name: newColumnName
 			};
 			var jsonData = JSON.stringify(data);
 			console.log(jsonData);
-			
+
 			var columnId = event.target.parentNode.querySelector('[id]').id;
 
 			fetch(baseUrl + '/column/' + columnId, {
@@ -83,43 +69,12 @@ function Column(id, name) {
 		}
 	});
 }
-/*		
-		var data = new FormData();
-	
-		data.append('name', newColumnName);
-	
-		fetch(baseUrl + '/column', {
-			method: 'POST',
-			headers: myHeaders,
-			body: data,
-		})
-			.then(function (resp) {
-				return resp.json();
-			})
-			.then(function (resp) {
-				var column = new Column(resp.id, newColumnName);
-				board.addColumn(column);
-	
-				var columnName = this.getElementsByTagName('h2')[0];
-				columnName = newColumnName;
-	console.log(columnName);
-	
-	self.changeColumnName();
-	
-			});
-	
-		}
-	
-	});
-}*/
 
 Column.prototype = {
 	addCard: function (card) {
 		this.element.querySelector('ul').appendChild(card.element);
 	},
-	/*removeColumn: function() {
-	  this.element.parentNode.removeChild(this.element);
-	},*/
+
 	removeColumn: function () {
 		var self = this;
 		fetch(baseUrl + '/column/' + self.id, { method: 'DELETE', headers: myHeaders })

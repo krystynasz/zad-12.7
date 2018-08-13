@@ -16,61 +16,9 @@ function Card(id, name) {
 			self.removeCard();
 		}
 
-		/*if (event.target.classList.contains('card')) {
-			var cardName = prompt("Change the name of the card");
-			event.preventDefault();
-	
-			var data = new FormData();
-			data.append('name', cardName);
-			data.append('bootcamp_kanban_column_id', self.id);
-	
-			fetch(baseUrl + '/card', {
-				method: 'POST',
-				headers: myHeaders,
-				body: data,
-			})
-				.then(function (res) {
-					return res.json();
-				})
-				.then(function (resp) {
-					var card = new Card(resp.id, cardName);
-				self.addCard(card);
-				});
-		}*/
 		if (event.target.classList.contains('card')) {
 			var newCardName = prompt("Change the name of the card");
 			event.preventDefault();
-
-			/*	var cardName = this.getElementsByClassName('card-description')[0];
-				cardName = newCardName;
-				console.log(cardName);
-	
-				var data = {
-					name: newCardName,
-				//	bootcamp_kanban_column_id: this.id
-				};
-	
-				console.log(data.name);
-			//	console.log(data.bootcamp_kanban_column_id);
-	
-				var jsonData = JSON.stringify(data);
-	
-				console.log(jsonData);
-	
-				var cardId = event.target.parentNode.querySelector('[id]').id;
-				console.log(cardId);
-	
-				fetch(baseUrl + '/card/' + cardId, {
-					method: 'PUT',
-					headers: myHeaders,
-					body: jsonData,
-				})
-					.then(function (resp) {
-						return resp.json();
-					})
-					.then(function (resp) {
-						event.target.innerText = newCardName;
-					});*/
 
 			var data = {
 				name: newCardName
@@ -89,16 +37,14 @@ function Card(id, name) {
 				body: jsonData,
 			})
 				.then(function (resp) {
+					console.log("It works 1");
 					return resp.json();
-					console.log("It works 1")
 				})
 				.then(function (resp) {
 					event.target.innerText = newCardName;
 					console.log("It works 2")
 				});
 		}
-
-
 	});
 }
 Card.prototype = {

@@ -9,28 +9,18 @@ var board = {
 
 document.querySelector('#board .create-column').addEventListener('click', function () {
     var name = prompt('Enter a column name');
-   
+
     var data = {
         name: name
-        };
-        
-        var jsonData = JSON.stringify(data);
-        
-        fetch(baseUrl + '/column', {
-        method: 'POST',
-        headers: myHeaders,
-        body: jsonData,
-        })
-/*        
-    var data = new FormData();
+    };
 
-    data.append('name', name);
+    var jsonData = JSON.stringify(data);
 
     fetch(baseUrl + '/column', {
         method: 'POST',
         headers: myHeaders,
-        body: data,
-    })*/
+        body: jsonData,
+    })
         .then(function (resp) {
             return resp.json();
         })
@@ -58,49 +48,29 @@ function initSortable(id) {
             console.log(cardDiv);
             console.log(cardId);
 
-           var data = {
-            bootcamp_kanban_column_id: targetColumn.id
-        };
-        
-        var jsonData = JSON.stringify(data);
-           
-            //data.append('bootcamp_kanban_column_id',targetColumn.id);
-           // console.log(targetColumn.id);
-    
-            fetch(baseUrl + '/card/' + cardId, { 
-                method: 'PUT', 
-                headers: myHeaders, 
-                body: jsonData, 
+            var data = {
+                bootcamp_kanban_column_id: targetColumn.id
+            };
+
+            var jsonData = JSON.stringify(data);
+
+            fetch(baseUrl + '/card/' + cardId, {
+                method: 'PUT',
+                headers: myHeaders,
+                body: jsonData,
             })
-            /*fetch(baseUrl + '/card/' + cardId, { method: 'PUT', headers: myHeaders, body:data })*/
-              .then(function(resp) {
-                if (resp.ok) {
-                    return resp.json();    
-                }
-                throw new Error('Something went wrong.');
-              })
-              .then(function(resp) {
-                console.log(resp);
-              })
-              .catch(function(err) {
-                console.log(err);
-              });
-                /*return resp.json();
-              })
-              .catch(function() {
-                  console.log("error")
-              });*/
-            /*var data = new FormData();
-                data.append('name', card.id);
-                data.append('bootcamp_kanban_column_id',id);
-        
-                fetch(baseUrl + '/card/' + card.id, { method: 'PUT', headers: myHeaders, body:data })
-                  .then(function(resp) {
-                    return resp.json();
-                  })
-                  .then(function(resp) {
-                    console.log(card.id);
-                  });*/
+                .then(function (resp) {
+                    if (resp.ok) {
+                        return resp.json();
+                    }
+                    throw new Error('Something went wrong.');
+                })
+                .then(function (resp) {
+                    console.log(resp);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
         }
     });
 }
