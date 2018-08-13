@@ -37,13 +37,13 @@ function Card(id, name) {
 				self.addCard(card);
 				});
 		}*/
-		if (event.target.classList.contains('card')) {
+		if (event.target..parentNode.classList.contains('card')) {
 			var newCardName = prompt("Change the name of the card");
 			event.preventDefault();
 
-			var cardName = this.getElementsByClassName('card-description')[0];
+		/*	var cardName = this.getElementsByClassName('card-description')[0];
 			cardName = newCardName;
-			console.log(cardName);
+			console.log(cardName);*/
 
 			var data = {
 				name: newCardName,
@@ -52,16 +52,16 @@ function Card(id, name) {
 
 			console.log(data.name);
 			console.log(data.bootcamp_kanban_column_id);
-		
+
 			var jsonData = JSON.stringify(data);
 
 			console.log(jsonData);
 
 			var cardId = event.target.parentNode.querySelector('[id]').id;
-		console.log(cardId);
-		
+			console.log(cardId);
+
 			fetch(baseUrl + '/card/' + cardId, {
-				method: 'POST',
+				method: 'PUT',
 				headers: myHeaders,
 				body: jsonData,
 			})

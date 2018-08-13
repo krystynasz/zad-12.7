@@ -52,9 +52,9 @@ function Column(id, name) {
 			var newColumnName = prompt("Change the name of the column");
 			event.preventDefault();
 
-			var columnName = this.getElementsByTagName('h2')[0];
+		/*	var columnName = this.getElementsByTagName('h2')[0];
 			columnName = newColumnName;
-			console.log(columnName);
+			console.log(columnName);*/
 
 			var data = {
 				name: newColumnName
