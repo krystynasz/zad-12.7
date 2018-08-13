@@ -17,7 +17,20 @@ function Column(id, name) {
 			var cardName = prompt("Enter the name of the card");
 			event.preventDefault();
 
-			var data = new FormData();
+			var data = {
+				name: cardName,
+				bootcamp_kanban_column_id: self.id
+				};
+				
+				var jsonData = JSON.stringify(data);
+				
+				fetch(baseUrl + '/column', {
+				method: 'POST',
+				headers: myHeaders,
+				body: jsonData,
+				})
+
+			/*var data = new FormData();
 			data.append('name', cardName);
 			data.append('bootcamp_kanban_column_id', self.id);
 
@@ -25,7 +38,7 @@ function Column(id, name) {
 				method: 'POST',
 				headers: myHeaders,
 				body: data,
-			})
+			})*/
 				.then(function (res) {
 					return res.json();
 				})
