@@ -41,6 +41,7 @@ function Column(id, name) {
 
 		if (event.target.classList.contains('column-title')) {
 			var newColumnName = prompt("Change the name of the column");
+			newColumnName = newColumnName || event.target.value;
 			event.preventDefault();
 
 			var data = {

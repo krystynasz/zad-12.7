@@ -17,8 +17,8 @@ function Card(id, name) {
 		}
 
 		if (event.target.classList.contains('card')) {
-			var newCardName = prompt("Change the name of the card");
-			newCardName = newCardName || event.target.value;
+			var newCardName = prompt("Change the name of the card") || event.target.value;;
+			//newCardName = newCardName || event.target.value;
 			event.preventDefault();
 
 			var data = {
