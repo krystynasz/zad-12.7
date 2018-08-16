@@ -21,7 +21,7 @@ function Card(id, name) {
 			event.preventDefault();
 
 			var data = {
-				name: newCardName,
+				name: newCardName || 'No name given',
 				bootcamp_kanban_column_id: event.target.closest('.column-card-list').id
 			};
 			console.log(data.bootcamp_kanban_column_id);
