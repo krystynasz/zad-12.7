@@ -18,10 +18,11 @@ function Card(id, name) {
 
 		if (event.target.classList.contains('card')) {
 			var newCardName = prompt("Change the name of the card");
+			newCardName = newCardName || 'No name given';
 			event.preventDefault();
 
 			var data = {
-				name: newCardName || 'No name given',
+				name: newCardName,
 				bootcamp_kanban_column_id: event.target.closest('.column-card-list').id
 			};
 			console.log(data.bootcamp_kanban_column_id);
