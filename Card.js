@@ -20,8 +20,8 @@ function Card(id, name) {
 			console.log (event.target.innerText)
 			var currentCardName = event.target.innerText;
 			var newCardName = prompt("Change the name of the card");
-			if (newCardName == undefined) {
-				newCardName = currentCardName;
+			if (newCardName == "" || null ) {
+				console.log ("I need the old name")
 			}
 			event.preventDefault();
 
